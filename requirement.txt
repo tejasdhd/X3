@@ -1,0 +1,4 @@
+pycryptodome
+pyTelegramBotAPI
+psutil
+paramiko
