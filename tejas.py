@@ -27,7 +27,7 @@ from stat import S_ISDIR
 
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-warnings.filterwarnings("ignore"http, category=CryptographyDeprecationWarning)
+warnings.filterwarnings("ignore", category=CryptographyDeprecationWarning)
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -1381,7 +1381,7 @@ def user_management(message):
         return
     
     bot.send_message(
-        chat_id
+        chat_id,
         "*User Management*",
         reply_markup=get_admin_markup(),
         parse_mode='Markdown'
